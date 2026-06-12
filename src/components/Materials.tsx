@@ -21,31 +21,31 @@ export default function Materials({ materials }: MaterialsProps) {
       id="materials"
       style={{ backgroundColor: '#F5F4F1', borderTop: '1px solid #DEDEDE' }}
     >
-      <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16 py-20 md:py-28">
+      <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32 lg:py-40">
         {/* Section header */}
-        <div className="flex items-center gap-4 mb-14">
+        <div className="flex items-center gap-4 mb-16 lg:mb-20">
           <span className="index-num">{t(content.materials.sectionNum, lang)}</span>
           <div style={{ width: '2rem', height: '1px', backgroundColor: '#AAAAAA' }} />
           <span className="label">{t(content.materials.sectionLabel, lang)}</span>
         </div>
 
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-6">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 lg:mb-20 gap-8">
           <h2
             className="font-grotesk font-light leading-editorial"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: '#111111' }}
+            style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: '#111111', lineHeight: '1.15' }}
           >
             {t(content.materials.title, lang)}
           </h2>
           <p
             className="font-montserrat leading-body lg:text-right"
-            style={{ fontSize: '0.875rem', color: '#666666', maxWidth: '26rem' }}
+            style={{ fontSize: '0.95rem', color: '#555555', maxWidth: '26rem', lineHeight: '1.65' }}
           >
             {t(content.materials.subtitle, lang)}
           </p>
         </div>
 
         {/* Horizontal rule */}
-        <div style={{ height: '1px', backgroundColor: '#EDECE8', marginBottom: '3rem' }} />
+        <div style={{ height: '1px', backgroundColor: '#EDECE8', marginBottom: '4rem' }} />
 
         {/* Material entries */}
         <div className="flex flex-col gap-0">
@@ -64,19 +64,19 @@ export default function Materials({ materials }: MaterialsProps) {
               >
                 {/* Index + color swatch column */}
                 <div
-                  className="md:col-span-1 py-8 px-4 flex md:flex-col items-center md:items-start gap-4 md:gap-6"
+                  className="md:col-span-1 py-10 px-5 flex md:flex-col items-center md:items-start gap-4 md:gap-6"
                   style={{ borderRight: '1px solid #EDECE8' }}
                 >
                   <span
                     className="font-grotesk font-light"
-                    style={{ fontSize: '0.6rem', color: '#CCCCCC', letterSpacing: '0.1em' }}
+                    style={{ fontSize: '0.65rem', color: '#CCCCCC', letterSpacing: '0.1em' }}
                   >
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <div
                     style={{
-                      width: '2rem',
-                      height: '2rem',
+                      width: '2.5rem',
+                      height: '2.5rem',
                       backgroundColor: colorData.bg,
                       flexShrink: 0,
                     }}
@@ -85,13 +85,13 @@ export default function Materials({ materials }: MaterialsProps) {
 
                 {/* Material name column */}
                 <div
-                  className="md:col-span-3 py-8 px-6 flex items-center"
+                  className="md:col-span-3 py-10 px-7 flex items-center"
                   style={{ borderRight: '1px solid #EDECE8' }}
                 >
                   <div>
                     <h3
-                      className="font-grotesk font-medium mb-1"
-                      style={{ fontSize: '1.1rem', color: '#111111' }}
+                      className="font-grotesk font-medium mb-2"
+                      style={{ fontSize: '1.15rem', color: '#111111' }}
                     >
                       {name}
                     </h3>
@@ -101,29 +101,29 @@ export default function Materials({ materials }: MaterialsProps) {
 
                 {/* Composition column */}
                 <div
-                  className="md:col-span-4 py-8 px-6"
+                  className="md:col-span-4 py-10 px-7"
                   style={{ borderRight: '1px solid #EDECE8' }}
                 >
-                  <span className="label block mb-3">
+                  <span className="label block mb-4">
                     {t(content.materials.composition, lang)}
                   </span>
                   <p
                     className="font-montserrat leading-body"
-                    style={{ fontSize: '0.82rem', color: '#555555' }}
+                    style={{ fontSize: '0.9rem', color: '#555555', lineHeight: '1.6' }}
                   >
                     {composition}
                   </p>
                 </div>
 
                 {/* Origin + supplier column */}
-                <div className="md:col-span-4 py-8 px-6">
-                  <div className="mb-5">
-                    <span className="label block mb-2">
+                <div className="md:col-span-4 py-10 px-7">
+                  <div className="mb-6">
+                    <span className="label block mb-3">
                       {t(content.materials.origin, lang)}
                     </span>
                     <span
                       className="font-montserrat"
-                      style={{ fontSize: '0.82rem', color: '#333333' }}
+                      style={{ fontSize: '0.9rem', color: '#333333' }}
                     >
                       {material.origin_region
                         ? `${material.origin_region}, ${material.origin_country}`
@@ -132,12 +132,12 @@ export default function Materials({ materials }: MaterialsProps) {
                   </div>
                   {material.supplier_name && (
                     <div>
-                      <span className="label block mb-2">
+                      <span className="label block mb-3">
                         {t(content.materials.supplier, lang)}
                       </span>
                       <span
                         className="font-montserrat"
-                        style={{ fontSize: '0.82rem', color: '#333333' }}
+                        style={{ fontSize: '0.9rem', color: '#333333' }}
                       >
                         {material.supplier_name}
                       </span>
