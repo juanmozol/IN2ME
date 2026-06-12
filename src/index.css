@@ -4,22 +4,271 @@
 
 @layer base {
   :root {
-    --color-bg: #F5F4F1; /* Color Crema/Papel */
-    --color-ink: #111111; /* Texto Negro */
+    --color-bg: #F5F4F1;
+    --color-bg-alt: #FFFFFF;
+    --color-ink: #111111;
+    --color-ink-muted: #666666;
+    --color-ink-faint: #AAAAAA;
     --color-border: #DEDEDE;
+    --color-border-strong: #C0C0C0;
+    --color-dark-bg: #111111;
+    --color-dark-text: #F5F4F1;
+    /* Enhanced dark mode text for better contrast */
+    --color-dark-text-high: #FFFFFF;
+    --color-dark-text-muted: #E0E0E0;
   }
-  body {
+
+  html {
+    scroll-behavior: smooth;
     background-color: var(--color-bg);
-    color: var(--color-ink);
+  }
+
+  body {
     font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: var(--color-ink);
+    background-color: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Hanken Grotesk', sans-serif;
+  }
+
+  ::selection {
+    background-color: var(--color-ink);
+    color: var(--color-bg);
   }
 }
 
 @layer components {
+  /* Typography utilities */
+  .label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-ink-faint);
+  }
+
+  .label-dark {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #666666;
+    /* Enhanced contrast on dark backgrounds */
+    color: #D0D0D0;
+  }
+
+  .index-num {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    color: var(--color-ink-faint);
+  }
+
+  /* Structural components */
+  .section-rule {
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-border);
+  }
+
+  .section-rule-dark {
+    width: 100%;
+    height: 1px;
+    background-color: #2A2A2A;
+  }
+
+  .card {
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    padding: 2rem;
+  }
+
+  .card-dark {
+    background-color: #1A1A1A;
+    border: 1px solid #2C2C2C;
+    padding: 2rem;
+  }
+
+  /* Navigation */
   .nav-link {
-    @apply text-[10px] font-medium tracking-[0.2em] uppercase text-black/60 hover:text-black transition-colors;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    padding: 0.5rem 0;
   }
+
+  .nav-link:hover {
+    color: var(--color-ink);
+  }
+
+  /* Buttons */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background-color: var(--color-ink);
+    color: var(--color-bg);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    border: 1px solid var(--color-ink);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+  }
+
+  .btn-primary:hover {
+    background-color: transparent;
+    color: var(--color-ink);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background-color: transparent;
+    color: var(--color-ink);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    border: 1px solid var(--color-ink);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-ink);
+    color: var(--color-bg);
+  }
+
+  .btn-outline-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background-color: transparent;
+    color: var(--color-dark-text);
+    color: var(--color-dark-text-high);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    border: 1px solid #444444;
+    border: 1px solid #555555;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+  }
+
+  .btn-outline-light:hover {
+    background-color: var(--color-dark-text);
+    background-color: var(--color-dark-text-high);
+    color: var(--color-dark-bg);
+  }
+
+  /* Timeline */
+  .timeline-node {
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-alt);
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+  }
+
+  .timeline-node.active {
+    background: var(--color-ink);
+    border-color: var(--color-ink);
+  }
+
+  /* Section spacing utility for consistent padding */
   .section-spacing {
-    @apply py-20 px-6 max-w-7xl mx-auto;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
+
+  @screen md {
+    .section-spacing {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  @screen lg {
+    .section-spacing {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+}
+
+@layer utilities {
+  .text-ink { color: var(--color-ink); }
+  .text-ink-muted { color: var(--color-ink-muted); }
+  .text-ink-faint { color: var(--color-ink-faint); }
+  .bg-paper { background-color: var(--color-bg); }
+  .bg-paper-alt { background-color: var(--color-bg-alt); }
+  .bg-ink { background-color: var(--color-ink); }
+  .border-rule { border-color: var(--color-border); }
+
+  /* Dark text utilities with high contrast */
+  .text-dark-high { color: var(--color-dark-text-high); }
+  .text-dark-muted { color: var(--color-dark-text-muted); }
+
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Consistent spacing utilities */
+  .section-x-padding {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @screen md {
+    .section-x-padding {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
+
+  @screen lg {
+    .section-x-padding {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease forwards;
 }
