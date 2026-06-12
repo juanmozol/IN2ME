@@ -66,19 +66,19 @@ export default function Hero({ products, activeProduct, onProductChange }: HeroP
         <div className="h-20 md:h-24" />
 
         {/* Top meta bar */}
-        <div className="flex items-center justify-between pt-4">
+        <div className="flex items-center justify-between pt-6 pb-8">
           <div className="flex items-center gap-4">
             <span
-              className="font-montserrat tracking-widest uppercase"
-              style={{ fontSize: '0.55rem', letterSpacing: '0.28em', color: '#888888' }}
+              className="font-montserrat tracking-widest uppercase text-dark-high"
+              style={{ fontSize: '0.55rem', letterSpacing: '0.28em', color: '#CCCCCC' }}
             >
               {t(content.hero.eyebrow, lang)}
             </span>
           </div>
           {activeProduct && (
             <span
-              className="font-montserrat tracking-widest"
-              style={{ fontSize: '0.55rem', letterSpacing: '0.2em', color: '#666666' }}
+              className="font-montserrat tracking-widest text-dark-muted"
+              style={{ fontSize: '0.55rem', letterSpacing: '0.2em', color: '#999999' }}
             >
               {activeProduct.passport_id}
             </span>
@@ -86,23 +86,23 @@ export default function Hero({ products, activeProduct, onProductChange }: HeroP
         </div>
 
         {/* Main title area — pushed to bottom */}
-        <div className="flex-1 flex flex-col justify-end pb-14 md:pb-20">
+        <div className="flex-1 flex flex-col justify-end pb-16 md:pb-24">
           {/* Collection + season row */}
-          <div className="flex items-center gap-6 mb-6">
+          <div className="flex items-center gap-8 mb-8">
             {[
               { label: t(content.hero.collection, lang), val: collectionName },
               { label: t(content.hero.season, lang), val: activeProduct?.season ?? '' },
             ].map(({ label, val }) => (
               <div key={label}>
                 <span
-                  className="font-montserrat block mb-1"
-                  style={{ fontSize: '0.55rem', letterSpacing: '0.28em', color: '#666666', textTransform: 'uppercase' }}
+                  className="font-montserrat block mb-2 text-dark-muted"
+                  style={{ fontSize: '0.55rem', letterSpacing: '0.28em', color: '#999999', textTransform: 'uppercase' }}
                 >
                   {label}
                 </span>
                 <span
-                  className="font-grotesk font-light"
-                  style={{ fontSize: '0.8rem', letterSpacing: '0.12em', color: '#BBBBBB' }}
+                  className="font-grotesk font-light text-dark-high"
+                  style={{ fontSize: '0.9rem', letterSpacing: '0.12em', color: '#E8E8E8' }}
                 >
                   {val}
                 </span>
@@ -112,14 +112,14 @@ export default function Hero({ products, activeProduct, onProductChange }: HeroP
 
           {/* Product name — large editorial */}
           <h1
-            className="font-grotesk font-light text-white leading-editorial mb-8"
-            style={{ fontSize: 'clamp(3rem, 9vw, 8.5rem)', color: '#F5F4F1', lineHeight: '1.0' }}
+            className="font-grotesk font-light text-white leading-editorial mb-12"
+            style={{ fontSize: 'clamp(3rem, 9vw, 8.5rem)', color: '#FFFFFF', lineHeight: '1.0' }}
           >
             {productName}
           </h1>
 
           {/* Bottom controls row */}
-          <div className="flex items-end justify-between flex-wrap gap-6">
+          <div className="flex items-end justify-between flex-wrap gap-8">
             {/* View toggle */}
             <div className="flex items-center gap-0">
               {[
@@ -136,10 +136,10 @@ export default function Hero({ products, activeProduct, onProductChange }: HeroP
                     fontSize: '0.6rem',
                     letterSpacing: '0.22em',
                     textTransform: 'uppercase',
-                    color: active ? '#F5F4F1' : '#555555',
+                    color: active ? '#FFFFFF' : '#777777',
                     paddingBottom: '2px',
-                    borderBottom: active ? '1px solid #F5F4F1' : '1px solid transparent',
-                    marginRight: '1.5rem',
+                    borderBottom: active ? '1px solid #FFFFFF' : '1px solid transparent',
+                    marginRight: '2rem',
                   }}
                 >
                   {label}
@@ -155,7 +155,7 @@ export default function Hero({ products, activeProduct, onProductChange }: HeroP
               >
                 <div
                   className="overflow-hidden"
-                  style={{ width: '2.5rem', height: '3rem', border: '1px solid #333333', flexShrink: 0 }}
+                  style={{ width: '2.5rem', height: '3rem', border: '1px solid #444444', flexShrink: 0 }}
                 >
                   {otherProduct.hero_image_url && (
                     <img
@@ -168,14 +168,14 @@ export default function Hero({ products, activeProduct, onProductChange }: HeroP
                 </div>
                 <div className="text-left">
                   <span
-                    className="font-montserrat block mb-0.5"
-                    style={{ fontSize: '0.55rem', letterSpacing: '0.22em', color: '#555555', textTransform: 'uppercase' }}
+                    className="font-montserrat block mb-1 text-dark-muted"
+                    style={{ fontSize: '0.55rem', letterSpacing: '0.22em', color: '#888888', textTransform: 'uppercase' }}
                   >
                     {t(content.hero.switchLabel, lang)}
                   </span>
                   <span
-                    className="font-grotesk font-light transition-colors duration-200 group-hover:text-white"
-                    style={{ fontSize: '0.85rem', color: '#888888' }}
+                    className="font-grotesk font-light transition-colors duration-200 group-hover:text-white text-dark-high"
+                    style={{ fontSize: '0.9rem', color: '#CCCCCC' }}
                   >
                     {lang === 'en' ? otherProduct.name : otherProduct.name_es}
                   </span>
@@ -187,16 +187,16 @@ export default function Hero({ products, activeProduct, onProductChange }: HeroP
 
         {/* Scroll hint */}
         <div
-          className="pb-6 flex items-center gap-3"
-          style={{ borderTop: '1px solid #222222', paddingTop: '1rem' }}
+          className="pb-8 flex items-center gap-3"
+          style={{ borderTop: '1px solid #333333', paddingTop: '2rem' }}
         >
           <div
             className="h-4 w-px animate-pulse"
-            style={{ background: 'linear-gradient(to bottom, #444, transparent)' }}
+            style={{ background: 'linear-gradient(to bottom, #666, transparent)' }}
           />
           <span
-            className="font-montserrat"
-            style={{ fontSize: '0.55rem', letterSpacing: '0.25em', color: '#444444', textTransform: 'uppercase' }}
+            className="font-montserrat text-dark-muted"
+            style={{ fontSize: '0.55rem', letterSpacing: '0.25em', color: '#666666', textTransform: 'uppercase' }}
           >
             {t(content.hero.scrollHint, lang)}
           </span>
