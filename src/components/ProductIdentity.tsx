@@ -22,7 +22,7 @@ export default function ProductIdentity({ data }: ProductIdentityProps) {
     <section id="identity" style={{ backgroundColor: '#F5F4F1', borderTop: '1px solid #DEDEDE' }}>
       <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32 lg:py-40">
         {/* Section header */}
-        <div className="flex items-center gap-4 mb-16 lg:mb-20">
+        <div className="flex items-center gap-4 mb-16 lg:mb-20 fade-in">
           <span className="index-num">{t(content.identity.sectionNum, lang)}</span>
           <div className="section-rule" style={{ width: '2rem' }} />
           <span className="label">{t(content.identity.sectionLabel, lang)}</span>
@@ -30,7 +30,7 @@ export default function ProductIdentity({ data }: ProductIdentityProps) {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20">
           {/* Left col: product image */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 fade-in" style={{ animationDelay: '0.1s' }}>
             <div
               className="relative overflow-hidden"
               style={{ aspectRatio: '3/4', backgroundColor: '#EDECE8' }}
@@ -67,7 +67,7 @@ export default function ProductIdentity({ data }: ProductIdentityProps) {
           </div>
 
           {/* Right col: details */}
-          <div className="lg:col-span-7 flex flex-col justify-center">
+          <div className="lg:col-span-7 flex flex-col justify-center fade-in" style={{ animationDelay: '0.2s' }}>
             <h2
               className="font-grotesk font-light leading-tight-heading mb-6"
               style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: '#111111', lineHeight: '1.15' }}
@@ -180,6 +180,171 @@ export default function ProductIdentity({ data }: ProductIdentityProps) {
                 </div>
               </div>
             )}
+          </div>
+        </div>
+
+        {/* Technical Sheet with QR and Verification Badge */}
+        <div className="mt-20 lg:mt-28 pt-20 lg:pt-28 border-t border-gray-300" style={{ borderTopColor: '#DEDEDE' }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+            {/* QR Code Section */}
+            <div className="flex flex-col items-center fade-in" style={{ animationDelay: '0.3s' }}>
+              <div
+                className="relative mb-6"
+                style={{
+                  width: '180px',
+                  height: '180px',
+                  border: '1px solid #DEDEDE',
+                  backgroundColor: '#FFFFFF',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                {/* Placeholder QR - replace with actual QR component */}
+                <svg viewBox="0 0 29 29" className="w-full h-full" style={{ padding: '8px' }}>
+                  <rect x="0" y="0" width="29" height="29" fill="white" />
+                  <rect x="0" y="0" width="7" height="7" fill="black" />
+                  <rect x="22" y="0" width="7" height="7" fill="black" />
+                  <rect x="0" y="22" width="7" height="7" fill="black" />
+                  <rect x="11" y="11" width="7" height="7" fill="black" />
+                </svg>
+              </div>
+              <p
+                className="font-montserrat text-center tracking-wide"
+                style={{
+                  fontSize: '0.6rem',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  color: '#999999',
+                }}
+              >
+                {lang === 'en' ? 'Scan to verify authenticity' : 'Escanea para verificar autenticidad'}
+              </p>
+            </div>
+
+            {/* Verification Badge */}
+            <div className="flex flex-col items-center justify-center fade-in" style={{ animationDelay: '0.4s' }}>
+              <div
+                className="flex flex-col items-center gap-4 mb-6"
+                style={{
+                  padding: '2rem',
+                  border: '1px solid #DEDEDE',
+                  backgroundColor: '#FFFFFF',
+                }}
+              >
+                {/* Check Icon */}
+                <div
+                  className="flex items-center justify-center"
+                  style={{
+                    width: '2.5rem',
+                    height: '2.5rem',
+                    borderRadius: '50%',
+                    backgroundColor: '#F0FDF4',
+                    border: '1px solid #BBF7D0',
+                  }}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="#22C55E"
+                    strokeWidth="2"
+                  >
+                    <polyline points="2,8 6,12 14,4" />
+                  </svg>
+                </div>
+                <div className="text-center">
+                  <p
+                    className="font-montserrat font-medium block mb-1"
+                    style={{ fontSize: '0.8rem', color: '#111111', textTransform: 'uppercase', letterSpacing: '0.1em' }}
+                  >
+                    {lang === 'en' ? 'Status' : 'Estado'}
+                  </p>
+                  <p
+                    className="font-grotesk font-medium"
+                    style={{ fontSize: '1rem', color: '#22C55E' }}
+                  >
+                    {lang === 'en' ? 'Verified' : 'Verificado'}
+                  </p>
+                </div>
+              </div>
+              <p
+                className="font-montserrat text-center"
+                style={{
+                  fontSize: '0.65rem',
+                  color: '#999999',
+                  maxWidth: '12rem',
+                  lineHeight: '1.4',
+                }}
+              >
+                {lang === 'en'
+                  ? 'Authentic IN2ME Digital Passport'
+                  : 'Pasaporte Digital IN2ME Auténtico'}
+              </p>
+            </div>
+
+            {/* Passport ID Section */}
+            <div className="flex flex-col items-center fade-in" style={{ animationDelay: '0.5s' }}>
+              <div
+                style={{
+                  padding: '2rem',
+                  border: '1px solid #DEDEDE',
+                  backgroundColor: '#FAFAF8',
+                  width: '100%',
+                }}
+              >
+                <p
+                  className="font-montserrat block mb-3"
+                  style={{
+                    fontSize: '0.6rem',
+                    letterSpacing: '0.2em',
+                    textTransform: 'uppercase',
+                    color: '#999999',
+                  }}
+                >
+                  {lang === 'en' ? 'Passport ID' : 'ID de Pasaporte'}
+                </p>
+                <p
+                  className="font-grotesk font-light mb-6"
+                  style={{
+                    fontSize: '1.2rem',
+                    color: '#111111',
+                    wordBreak: 'break-all',
+                    lineHeight: '1.5',
+                  }}
+                >
+                  {product.passport_id}
+                </p>
+                <div
+                  style={{
+                    paddingTop: '1rem',
+                    borderTop: '1px solid #DEDEDE',
+                  }}
+                >
+                  <p
+                    className="font-montserrat block mb-2"
+                    style={{
+                      fontSize: '0.6rem',
+                      letterSpacing: '0.15em',
+                      textTransform: 'uppercase',
+                      color: '#999999',
+                    }}
+                  >
+                    {lang === 'en' ? 'Edition' : 'Edición'}
+                  </p>
+                  <p
+                    className="font-grotesk"
+                    style={{
+                      fontSize: '0.9rem',
+                      color: '#333333',
+                    }}
+                  >
+                    {lang === 'en' ? 'Limited Batch #01/50' : 'Lote Limitado #01/50'}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
