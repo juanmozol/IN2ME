@@ -13,6 +13,9 @@
     --color-border-strong: #C0C0C0;
     --color-dark-bg: #111111;
     --color-dark-text: #F5F4F1;
+    /* Enhanced dark mode text for better contrast */
+    --color-dark-text-high: #FFFFFF;
+    --color-dark-text-muted: #E0E0E0;
   }
 
   html {
@@ -56,7 +59,8 @@
     font-weight: 500;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: #666666;
+    /* Enhanced contrast on dark backgrounds */
+    color: #D0D0D0;
   }
 
   .index-num {
@@ -102,6 +106,7 @@
     color: var(--color-ink-muted);
     text-decoration: none;
     transition: color 0.2s ease;
+    padding: 0.5rem 0;
   }
 
   .nav-link:hover {
@@ -161,20 +166,20 @@
     gap: 0.5rem;
     padding: 0.75rem 1.75rem;
     background-color: transparent;
-    color: var(--color-dark-text);
+    color: var(--color-dark-text-high);
     font-family: 'Montserrat', sans-serif;
     font-size: 0.6rem;
     font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    border: 1px solid #444444;
+    border: 1px solid #555555;
     cursor: pointer;
     transition: all 0.25s ease;
     text-decoration: none;
   }
 
   .btn-outline-light:hover {
-    background-color: var(--color-dark-text);
+    background-color: var(--color-dark-text-high);
     color: var(--color-dark-bg);
   }
 
@@ -195,6 +200,26 @@
     background: var(--color-ink);
     border-color: var(--color-ink);
   }
+
+  /* Section spacing utility for consistent padding */
+  .section-spacing {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  @screen md {
+    .section-spacing {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  @screen lg {
+    .section-spacing {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
 }
 
 @layer utilities {
@@ -206,8 +231,32 @@
   .bg-ink { background-color: var(--color-ink); }
   .border-rule { border-color: var(--color-border); }
 
+  /* Dark text utilities with high contrast */
+  .text-dark-high { color: var(--color-dark-text-high); }
+  .text-dark-muted { color: var(--color-dark-text-muted); }
+
   .scrollbar-hide::-webkit-scrollbar { display: none; }
   .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Consistent spacing utilities */
+  .section-x-padding {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @screen md {
+    .section-x-padding {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
+
+  @screen lg {
+    .section-x-padding {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
 }
 
 /* Fade-in animation */
